@@ -1,12 +1,12 @@
 import React from 'react'
 
-import BarChart from './components/BarChart'
 import './App.css'
+import Select from './components/Select'
 
 const App = () => {
   return (
     <div>
-      <BarChart />
+      <Select />
     </div>
   )
 }

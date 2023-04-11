@@ -1,15 +1,15 @@
 import React from 'react'
-import { Bar, defaults } from 'react-chartjs-2'
+import { Radar, defaults } from 'react-chartjs-2'
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
 
 // https://react-chartjs-2.js.org/examples/
 
-const BarChart = () => {
+const RadarChart = () => {
   return (
     <div>
-      <Bar
+      <Radar
         data={{
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [
@@ -38,11 +38,9 @@ const BarChart = () => {
             },
           ],
         }}
-        
         height={400}
         width={600}
         options={{
-          type: 'bar',
           maintainAspectRatio: false,
           scales: {
             yAxes: [
@@ -64,4 +62,4 @@ const BarChart = () => {
   )
 }
 
-export default BarChart
+export default RadarChart

@@ -1,15 +1,15 @@
 import React from 'react'
-import { Bar, defaults } from 'react-chartjs-2'
+import { Pie, defaults } from 'react-chartjs-2'
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
 
 // https://react-chartjs-2.js.org/examples/
 
-const BarChart = () => {
+const PieChart = () => {
   return (
     <div>
-      <Bar
+      <Pie
         data={{
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [
@@ -36,13 +36,17 @@ const BarChart = () => {
               ],
               borderWidth: 1,
             },
+            // {
+            //   label: 'Quantity',
+            //   data: [47, 52, 67, 58, 9, 50],
+            //   backgroundColor: 'orange',
+            //   borderColor: 'red',
+            // },
           ],
         }}
-        
         height={400}
         width={600}
         options={{
-          type: 'bar',
           maintainAspectRatio: false,
           scales: {
             yAxes: [
@@ -64,4 +68,4 @@ const BarChart = () => {
   )
 }
 
-export default BarChart
+export default PieChart
