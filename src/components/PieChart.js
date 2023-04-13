@@ -1,23 +1,42 @@
 import React from 'react'
-import { Pie, defaults } from 'react-chartjs-2'
+import { Pie, Bar, Line, defaults } from 'react-chartjs-2'
+import Homepage from './Homepage'
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
 
-// https://react-chartjs-2.js.org/examples/
+const PieChart = (props) => {
+  let suck = [];
+  let temp = [];
+  let tempString = props.name[1];
+  if(tempString != undefined){
+  const mars = tempString.split(";");
 
-const PieChart = () => {
+  for(let i = 0; i < mars.length; i++) {
+    let newString = mars[i].replace('(', '');
+    newString = newString.replace(')','');
+    const splitString = newString.split(',');
+    if(splitString[1] !== undefined && splitString[0] !== undefined){
+      suck.push(splitString[0]);
+      let newTemp = splitString[1].replace(' ','');
+     
+      temp.push(parseInt(newTemp));
+      }
+  }
+
+}
+
+  
   return (
     <div>
+      
       <Pie
         data={{
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          labels: suck,
           datasets: [
             {
-              label: '# of votes',
-              data: [12, 19, 3, 5, 2, 3],
-              // rgba(red, green, blue, alpha)
-              // red, blue, yellow, green, purple, orange
+              label: props.name[0],
+              data: temp,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -64,6 +83,8 @@ const PieChart = () => {
           },
         }}
       />
+    
+    
     </div>
   )
 }

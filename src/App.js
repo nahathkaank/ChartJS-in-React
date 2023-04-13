@@ -1,12 +1,20 @@
 import React from 'react'
 
+
+import BarChart from './components/BarChart'
+import Homepage from './components/Homepage'
+import LineChart from './components/LineChart'
+import PieChart from './components/PieChart'
+import RadarChart from './components/RadarChart'
 import './App.css'
-import Select from './components/Select'
+
 
 const App = () => {
   return (
     <div>
-      <Select />
+      <Homepage />
+
+
     </div>
   )
 }
