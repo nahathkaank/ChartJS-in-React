@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Bar, Line, defaults } from 'react-chartjs-2'
+import { Bar, Line, defaults } from 'react-chartjs-2'
 import Homepage from './Homepage'
 
 defaults.global.tooltips.enabled = false
@@ -9,27 +9,27 @@ const BarChart = (props) => {
   let suck = [];
   let temp = [];
   let tempString = props.name[1];
-  if(tempString != undefined){
-  const mars = tempString.split(";");
+  if (tempString != undefined) {
+    const mars = tempString.split(";");
 
-  for(let i = 0; i < mars.length; i++) {
-    let newString = mars[i].replace('(', '');
-    newString = newString.replace(')','');
-    const splitString = newString.split(',');
-    if(splitString[1] !== undefined && splitString[0] !== undefined){
-    suck.push(splitString[0]);
-    let newTemp = splitString[1].replace(' ','');
-   
-    temp.push(parseInt(newTemp));
+    for (let i = 0; i < mars.length; i++) {
+      let newString = mars[i].replace('(', '');
+      newString = newString.replace(')', '');
+      const splitString = newString.split(',');
+      if (splitString[1] !== undefined && splitString[0] !== undefined) {
+        suck.push(splitString[0]);
+        let newTemp = splitString[1].replace(' ', '');
+
+        temp.push(parseInt(newTemp));
+      }
     }
+
   }
 
-}
 
-  
   return (
     <div>
-      
+
       <Bar
         data={{
           labels: suck,
@@ -83,8 +83,8 @@ const BarChart = (props) => {
           },
         }}
       />
-    
-    
+
+
     </div>
   )
 }
