@@ -1,11 +1,18 @@
 import React from 'react'
-import { Pie, Bar, Line, defaults, } from 'react-chartjs-2'
-import { View, Text, input, useState } from 'react'
+import { defaults, } from 'react-chartjs-2'
+import { useState } from 'react'
 import BarChart from './BarChart'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
 import RadarChart from './RadarChart'
-
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import TextareaAutosize from '@mui/base/TextareaAutosize';
+import Typography from '@mui/material/Typography';
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
@@ -47,46 +54,56 @@ export const Homepage = () => {
       }}>
 
       <ul>
-        <h1
-          style={{
-            alignItems: "stretch",
-
-          }}>Welcome to DigEdit</h1>
-        <h2>Please enter the title for the y-axis</h2>
+        <Box sx={{ p: 1, backgroundColor: 'primary.main' }}>
+          <Typography variant="h2" component="h1" sx={{ fontWeight: 'light', color: 'white' }}>Welcome to DigEdit</Typography>
+        </Box>
+        <br></br><br></br>
+        <Typography variant="h4" component="h2" sx={{ fontWeight: 'light' }}>Please enter the title for the y-axis</Typography>
         <input
           type="text"
           id="title"
           name="title"
+          placeholder='Food'
           onChange={handleCli}
 
         />
-
-        <h3>Please enter in the format: (name,data) separated by ;</h3>
+        <br></br>
+        <br></br>
+        <Typography variant="h4" component="h3" sx={{ fontWeight: 'light' }}>Please enter in the format: (name,data) separated by ";"</Typography>
         <form>
-          <textarea style={{
-            maxHeight: '500px',
-            minHeight: '250px',
-            minWidth: '1000px',
-            resize: 'none',
-            padding: '9px',
-            boxSizing: 'border-box',
-            fontSize: '15px'
-          }} onChange={handleChange} />
+          <TextareaAutosize
+            aria-label="text area data entry"
+            placeholder="(Toast, 23);(Meat,78);(Salad, 12);(Biscuit, 34);(Cake, 45);(Cookie, 69)" style={{
+              maxHeight: '500px',
+              minHeight: '250px',
+              minWidth: '1000px',
+              resize: 'none',
+              padding: '9px',
+              boxSizing: 'border-box',
+              fontSize: '15px'
+            }} onChange={handleChange} />
 
 
 
         </form>
 
-        <button style={{ width: "100px", height: "50px", }} onClick={handleClick} >Submit</button>
-        <h5><select onChange={onChange}>
-          <option defaultValue>
-            Select Graph
-          </option>
-          <option value="BarChart">Bar Chart</option>
-          <option value="LineChart">Line Chart</option>
-          <option value="PieChart">Pie Chart</option>
-          <option value="RadarChart">Radar Chart</option>
-        </select></h5>
+        <Button variant="contained" size="large" onClick={handleClick} >Submit</Button>
+        <br></br>
+        <FormControl sx={{ m: 1, minWidth: 135 }}>
+          <InputLabel id="select-label">Select Graph</InputLabel>
+          <Select
+            labelId="select-label"
+            id="simple-select"
+            value={selectValue}
+            label="Graph Type"
+            onChange={onChange}
+          >
+            <MenuItem value="BarChart">Bar Chart</MenuItem>
+            <MenuItem value="LineChart">Line Chart</MenuItem>
+            <MenuItem value="PieChart">Pie Chart</MenuItem>
+            <MenuItem value="RadarChart">Radar Chart</MenuItem>
+          </Select>
+        </FormControl>
       </ul>
 
       {(selectValue === "BarChart") && <BarChart name={newMess} />}
