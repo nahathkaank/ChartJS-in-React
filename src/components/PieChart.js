@@ -1,6 +1,5 @@
 import React from 'react'
-import { Pie, Bar, Line, defaults } from 'react-chartjs-2'
-import Homepage from './Homepage'
+import { Pie, defaults } from 'react-chartjs-2'
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
@@ -9,7 +8,7 @@ const PieChart = (props) => {
   let suck = [];
   let temp = [];
   let tempString = props.name[1];
-  if (tempString != undefined) {
+  if (tempString !== undefined) {
     const mars = tempString.split(";");
 
     for (let i = 0; i < mars.length; i++) {

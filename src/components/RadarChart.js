@@ -1,6 +1,5 @@
 import React from 'react'
-import { Pie, Bar, Line, defaults, Radar } from 'react-chartjs-2'
-import Homepage from './Homepage'
+import { defaults, Radar } from 'react-chartjs-2'
 
 defaults.global.tooltips.enabled = false
 defaults.global.legend.position = 'bottom'
@@ -9,7 +8,7 @@ const RadarChart = (props) => {
   let suck = [];
   let temp = [];
   let tempString = props.name[1];
-  if (tempString != undefined) {
+  if (tempString !== undefined) {
     const mars = tempString.split(";");
 
     for (let i = 0; i < mars.length; i++) {
