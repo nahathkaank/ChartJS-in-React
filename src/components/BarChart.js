@@ -81,6 +81,19 @@ const BarChart = (props) => {
               fontSize: 25,
             },
           },
+          responsive: true,
+          title: {
+            display: true,
+            text: 'Chart.js Bar Chart'
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true
+          },
         }}
       />
 
