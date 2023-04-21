@@ -65,7 +65,7 @@ export const Homepage = () => {
           type="text"
           id="title"
           name="title"
-          placeholder='Food'
+          placeholder='Sales(in millions)'
           onChange={handleCli}
 
         />
