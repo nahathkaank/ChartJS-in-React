@@ -53,6 +53,20 @@ export const Homepage = () => {
 
       }}>
 
+      <ul>
+        <Box sx={{ p: 1, backgroundColor: 'primary.main' }}>
+          <Typography variant="h2" component="h1" sx={{ fontWeight: 'light', color: 'white' }}>Welcome to DigEdit</Typography>
+          
+          <Typography variant="body" component="hgroup" sx={{ fontWeight: 'light', color: 'white' }}>A visualization application for editing and viewing discussion graphs</Typography>
+        </Box>
+        <br></br><br></br>
+        <Typography variant="h4" component="h2" sx={{ fontWeight: 'light' }}>Please enter the title for the y-axis</Typography>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder='Sales(in millions)'
+          onChange={handleCli}
 
       <Box sx={{ p: 1, backgroundColor: 'primary.main' }}>
         <Typography variant="h2" component="h1" sx={{ fontWeight: 'light', color: 'white' }}>Welcome to DigEdit</Typography>
